@@ -538,3 +538,218 @@ section {
         border-bottom: none;
     }
 }
+/* ---------- Секция «Связаться с нами» ---------- */
+.contact {
+    text-align: center;
+}
+
+.contact-subtitle {
+    max-width: 560px;
+    margin: 0 auto var(--sp-10);
+    color: var(--text-mute);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--sp-5);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    width: 100%;
+    max-width: 420px;
+    padding: var(--sp-5) var(--sp-6);
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--dur-fast) var(--ease);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        var(--accent-overlay) 0%,
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity var(--dur-normal) var(--ease);
+    pointer-events: none;
+}
+
+.contact-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(29, 237, 131, 0.12);
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+.contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: var(--r-lg);
+    background: var(--accent-overlay);
+    border: 1px solid rgba(29, 237, 131, 0.25);
+    color: var(--accent);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    transition: all var(--dur-fast) var(--ease);
+}
+
+.contact-card:hover .contact-icon {
+    background: var(--accent-overlay-hover);
+    box-shadow: 0 0 20px var(--accent-overlay-hover);
+}
+
+.contact-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.contact-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-mute);
+}
+
+.contact-value {
+    font-family: var(--code-font);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.contact-card:hover .contact-value {
+    color: var(--accent);
+}
+
+.contact-arrow {
+    font-size: 20px;
+    color: var(--text-mute);
+    position: relative;
+    z-index: 1;
+    transition: all var(--dur-fast) var(--ease);
+}
+
+.contact-card:hover .contact-arrow {
+    color: var(--accent);
+    transform: translateX(4px);
+}
+
+/* ---------- Cookie-баннер ---------- */
+.cookie-banner {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%) translateY(120%);
+    width: calc(100% - 32px);
+    max-width: 720px;
+    background: rgba(20, 22, 20, 0.95);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-5) var(--sp-6);
+    z-index: 9999;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: transform 400ms var(--ease), opacity 400ms var(--ease);
+    pointer-events: none;
+}
+
+.cookie-banner[hidden] {
+    display: none;
+}
+
+.cookie-banner.is-visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cookie-content {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-5);
+    flex-wrap: wrap;
+}
+
+.cookie-text {
+    flex: 1;
+    min-width: 240px;
+    text-align: left;
+}
+
+.cookie-text strong {
+    display: block;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.cookie-text p {
+    color: var(--text-mute);
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.cookie-actions {
+    display: flex;
+    gap: var(--sp-3);
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+}
+
+@media (max-width: 640px) {
+    .cookie-banner {
+        bottom: 16px;
+        padding: var(--sp-4);
+    }
+    .cookie-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--sp-4);
+    }
+    .cookie-actions {
+        justify-content: stretch;
+    }
+    .cookie-actions .cookie-btn {
+        flex: 1;
+    }
+    .contact-card {
+        padding: var(--sp-4);
+    }
+}
