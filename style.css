@@ -1,0 +1,540 @@
+/* ============================================
+   Zero.ID — Лендинг. Дизайн-токены из проекта.
+   ============================================ */
+
+:root {
+    /* Шрифты */
+    --main-font: 'Inter', system-ui, sans-serif;
+    --heading-font: 'Montserrat', system-ui, sans-serif;
+    --code-font: 'IBM Plex Mono', ui-monospace, monospace;
+
+    /* Цвета (тёмная тема проекта) */
+    --bg: #0d0f0d;
+    --bg-surface: #141616;
+    --bg-panel: #232526;
+    --border: #2a2e2a;
+    --border-hover: #4a524a;
+
+    --text: #e8ebe8;
+    --text-body: #c5c9c5;
+    --text-mute: #8a918a;
+
+    --accent: #1ded83;
+    --accent-hover: #4af19c;
+    --accent-overlay: rgba(29, 237, 131, 0.08);
+    --accent-overlay-hover: rgba(29, 237, 131, 0.15);
+
+    --danger: #f75049;
+    --warning: #89FF26;
+
+    /* Glow (из Figma) */
+    --glow-1: #598F3D;
+    --glow-2: #14A61E;
+    --glow-3: #2FA415;
+    --glow-4: #098620;
+
+    /* Motion */
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-fast: 150ms;
+    --dur-normal: 300ms;
+
+    /* Spacing */
+    --sp-1: 4px; --sp-2: 8px; --sp-3: 12px;
+    --sp-4: 16px; --sp-5: 20px; --sp-6: 24px;
+    --sp-8: 32px; --sp-10: 40px; --sp-16: 64px;
+    --sp-20: 80px; --sp-24: 96px;
+
+    /* Radius */
+    --r-base: 4px;
+    --r-md: 6px;
+    --r-lg: 8px;
+    --r-xl: 12px;
+    --r-full: 9999px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--main-font);
+    background: var(--bg);
+    color: var(--text-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Фоновое свечение ---------- */
+.glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.ellipse {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+}
+
+.e1 {
+    width: 700px; height: 500px;
+    top: -100px; left: -150px;
+    background: var(--glow-1);
+}
+.e2 {
+    width: 700px; height: 500px;
+    top: -80px; right: -100px;
+    background: var(--glow-3);
+}
+.e3 {
+    width: 600px; height: 500px;
+    bottom: -150px; left: -200px;
+    background: var(--glow-1);
+}
+.e4 {
+    width: 600px; height: 500px;
+    bottom: -100px; right: -150px;
+    background: var(--glow-4);
+}
+
+/* ---------- Логотип ---------- */
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--text);
+}
+
+.logo-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--accent);
+    border-radius: var(--r-md);
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 700;
+    transition: all var(--dur-fast) var(--ease);
+}
+
+.logo:hover .logo-mark {
+    background: var(--accent-overlay);
+    box-shadow: 0 0 16px var(--accent-overlay-hover);
+}
+
+.logo-mark-sm {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+}
+
+/* ---------- Шапка ---------- */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sp-4) var(--sp-8);
+    background: rgba(13, 15, 13, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+/* ---------- Кнопки ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: var(--r-md);
+    font-family: var(--main-font);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease);
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #000;
+}
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--accent-overlay-hover);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-body);
+    border-color: var(--border);
+}
+.btn-ghost:hover {
+    border-color: var(--border-hover);
+    color: var(--text);
+    background: var(--accent-overlay);
+}
+
+/* ---------- Хиро ---------- */
+.hero {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--sp-24) var(--sp-6) var(--sp-20);
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--accent-overlay);
+    border: 1px solid rgba(29, 237, 131, 0.2);
+    border-radius: var(--r-full);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: var(--sp-6);
+}
+
+.hero-title {
+    font-family: var(--heading-font);
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: var(--sp-6);
+}
+
+.hero-title .accent {
+    color: var(--accent);
+    display: block;
+}
+
+.hero-subtitle {
+    font-size: clamp(16px, 2.5vw, 20px);
+    line-height: 1.7;
+    color: var(--text-body);
+    max-width: 720px;
+    margin: 0 auto var(--sp-10);
+}
+
+.hero-subtitle strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--sp-4);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ---------- Секции ---------- */
+section {
+    position: relative;
+    z-index: 1;
+    padding: var(--sp-20) var(--sp-6);
+}
+
+.section-title {
+    font-family: var(--heading-font);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    text-align: center;
+    color: var(--text);
+    margin-bottom: var(--sp-12, 48px);
+}
+
+/* ---------- Сравнение ---------- */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--sp-5);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.compare-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    transition: border-color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.compare-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+}
+
+.compare-card-accent {
+    border-color: var(--accent);
+    background: linear-gradient(
+            180deg,
+            var(--accent-overlay) 0%,
+            var(--bg-panel) 100%
+    );
+}
+
+.compare-card-accent:hover {
+    border-color: var(--accent-hover);
+    box-shadow: 0 8px 32px var(--accent-overlay-hover);
+}
+
+.compare-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-mute);
+}
+
+.compare-card-accent .compare-label {
+    color: var(--accent);
+}
+
+.compare-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+}
+
+.compare-card p {
+    font-size: 14px;
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+/* ---------- Фичи ---------- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--sp-5);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    transition: border-color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.feature-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+}
+
+.feature-accent {
+    display: block;
+    width: 40px;
+    height: 4px;
+    border-radius: var(--r-full);
+    background: var(--accent-color, var(--accent));
+}
+
+.feature-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+/* ---------- Пайплайн ---------- */
+.pipeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-3);
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto var(--sp-8);
+}
+
+.pipeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-4) var(--sp-5);
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    min-width: 120px;
+    transition: all var(--dur-fast) var(--ease);
+}
+
+.pipeline-step:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--r-full);
+    background: var(--accent-overlay);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.step-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.pipeline-arrow {
+    width: 24px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--border), var(--accent));
+    position: relative;
+}
+
+.pipeline-arrow::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: -3px;
+    border-left: 6px solid var(--accent);
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+}
+
+.how-description {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-mute);
+    font-size: 15px;
+}
+
+/* ---------- Стек ---------- */
+.stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--sp-3);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stack-item {
+    padding: 8px 16px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-body);
+    font-family: var(--code-font);
+    transition: all var(--dur-fast) var(--ease);
+}
+
+.stack-item:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ---------- Футер ---------- */
+.footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: var(--sp-16) var(--sp-6) var(--sp-8);
+    background: var(--bg-surface);
+}
+
+.footer-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+}
+
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--text);
+}
+
+.footer-tagline {
+    font-size: 14px;
+    color: var(--text-mute);
+    font-style: italic;
+}
+
+.footer-copy {
+    font-size: 12px;
+    color: var(--text-mute);
+    opacity: 0.6;
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 768px) {
+    .header { padding: var(--sp-3) var(--sp-4); }
+    .hero { padding: var(--sp-16) var(--sp-4) var(--sp-12); }
+    section { padding: var(--sp-12) var(--sp-4); }
+
+    .pipeline { flex-direction: column; }
+    .pipeline-arrow {
+        width: 2px;
+        height: 24px;
+        background: linear-gradient(180deg, var(--border), var(--accent));
+    }
+    .pipeline-arrow::after {
+        right: auto;
+        left: -3px;
+        top: auto;
+        bottom: -4px;
+        border-top: 6px solid var(--accent);
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: none;
+    }
+}

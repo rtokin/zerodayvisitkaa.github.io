@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zero.ID — Визуальный конструктор пентест-сценариев</title>
+    <meta name="description" content="Десктопное приложение для визуального конструирования сценариев проверки серверов без написания скриптов." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<!-- Фоновое свечение (из дизайн-системы проекта) -->
+<div class="glow" aria-hidden="true">
+    <div class="ellipse e1"></div>
+    <div class="ellipse e2"></div>
+    <div class="ellipse e3"></div>
+    <div class="ellipse e4"></div>
+</div>
+
+<!-- Шапка -->
+<header class="header">
+    <div class="logo">
+        <span class="logo-mark">Z</span>
+        <span class="logo-text">ero.ID</span>
+    </div>
+    <a href="#contact" class="btn btn-ghost">Связаться</a>
+</header>
+
+<main>
+    <!-- Хиро-секция: основной питч -->
+    <section class="hero">
+        <p class="hero-badge">Для инженеров по ИБ и системных администраторов</p>
+
+        <h1 class="hero-title">
+            Визуальный конструктор
+            <span class="accent">сценариев проверки серверов</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Мы создаём десктопное приложение, которое помогает автоматизировать
+            процесс пентеста и анализа защищённости
+            <strong>без необходимости писать сложные скрипты вручную.</strong>
+        </p>
+
+        <div class="hero-actions">
+            <a href="#features" class="btn btn-primary">Узнать больше</a>
+            <a href="#how" class="btn btn-ghost">Как это работает</a>
+        </div>
+    </section>
+
+    <!-- Секция сравнения: в отличие от -->
+    <section class="comparison" id="compare">
+        <h2 class="section-title">В отличие от привычных подходов</h2>
+
+        <div class="comparison-grid">
+            <div class="compare-card">
+                <span class="compare-label">Было</span>
+                <h3>Консольные утилиты по отдельности</h3>
+                <p>
+                    nmap, OpenVAS, SSH-скрипты — каждый инструмент сам по себе.
+                    Результаты приходится склеивать вручную, логика теряется между запусками.
+                </p>
+            </div>
+
+            <div class="compare-card">
+                <span class="compare-label">Было</span>
+                <h3>Дорогостоящие SIEM/SOAR-системы</h3>
+                <p>
+                    Сложное внедрение, обучение команды, лицензионные ограничения.
+                    Избыточно для точечных проверок и не даёт гибкости на уровне отдельного блока.
+                </p>
+            </div>
+
+            <div class="compare-card compare-card-accent">
+                <span class="compare-label">Стало</span>
+                <h3>Zero.ID</h3>
+                <p>
+                    Интуитивный интерфейс построения DAG-графов.
+                    Любой ИБ-специалист собирает комплексную цепочку проверок
+                    за считанные минуты.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция фич -->
+    <section class="features" id="features">
+        <h2 class="section-title">Что внутри</h2>
+
+        <div class="features-grid">
+            <article class="feature-card">
+                <span class="feature-accent" style="--accent-color: #1ded83;"></span>
+                <h3>Визуальный редактор</h3>
+                <p>
+                    Drag-and-drop канвас на основе @xyflow. Перетаскивайте блоки,
+                    соединяйте их линиями — граф исполнения строится сам.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-accent" style="--accent-color: #4af19c;"></span>
+                <h3>Полностью настраиваемые блоки</h3>
+                <p>
+                    Каждый блок — это обёртка над реальным инструментом.
+                    Настраивайте каждый флаг, как если бы вы писали команду вручную.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-accent" style="--accent-color: #89FF26;"></span>
+                <h3>Логи по каждому блоку</h3>
+                <p>
+                    Абсолютно всё, что происходит с блоком, логируется отдельно.
+                    Моноширинный вывод, фильтрация по блоку, дате, уровню.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-accent" style="--accent-color: #f75049;"></span>
+                <h3>Безопасность прежде всего</h3>
+                <p>
+                    Секреты хранятся в системном хранилище (не в файлах).
+                    Подтверждение периметра перед активным сканированием.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Секция "Как это работает" -->
+    <section class="how" id="how">
+        <h2 class="section-title">Соберите цепочку за минуты</h2>
+
+        <div class="pipeline">
+            <div class="pipeline-step">
+                <span class="step-number">1</span>
+                <span class="step-label">Подключение</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true"></div>
+            <div class="pipeline-step">
+                <span class="step-number">2</span>
+                <span class="step-label">Сканирование</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true"></div>
+            <div class="pipeline-step">
+                <span class="step-number">3</span>
+                <span class="step-label">Анализ</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true"></div>
+            <div class="pipeline-step">
+                <span class="step-number">4</span>
+                <span class="step-label">Оценка</span>
+            </div>
+            <div class="pipeline-arrow" aria-hidden="true"></div>
+            <div class="pipeline-step">
+                <span class="step-number">5</span>
+                <span class="step-label">Уведомление</span>
+            </div>
+        </div>
+
+        <p class="how-description">
+            Каждый шаг — это блок с собственной конфигурацией.
+            Результат одного блока автоматически передаётся следующему.
+        </p>
+    </section>
+
+    <!-- Секция стека -->
+    <section class="stack" id="stack">
+        <h2 class="section-title">Технологический стек</h2>
+        <div class="stack-list">
+            <span class="stack-item">React + TypeScript</span>
+            <span class="stack-item">Tauri v2</span>
+            <span class="stack-item">Python FastAPI</span>
+            <span class="stack-item">@xyflow/react</span>
+            <span class="stack-item">SQLite</span>
+            <span class="stack-item">nmap / OpenVAS</span>
+        </div>
+    </section>
+</main>
+
+<!-- Футер -->
+<footer class="footer" id="contact">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="logo-mark logo-mark-sm">Z</span>
+            <span>Zero.ID</span>
+        </div>
+        <p class="footer-tagline">
+            Zero.day. Защита, которая работает на опережение.
+        </p>
+        <p class="footer-copy">
+            © 2026 Zero.ID. Тестовая версия.
+        </p>
+    </div>
+</footer>
+</body>
+</html>
