@@ -10,35 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 
-    <!-- ================= Яндекс.Метрика (загружается ТОЛЬКО после согласия на cookies) ================= -->
+    <!-- ================= Яндекс.Метрика (грузится ТОЛЬКО после согласия на cookies) ================= -->
     <script>
-        // Инициализация счётчика после согласия
         window.initYandexMetrica = function () {
-            if (window.__ymLoaded) return; // защита от повторной инициализации
+            if (window.__ymLoaded) return;
             window.__ymLoaded = true;
 
-            (function (m, e, t, r, i, k, a) {
-                m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
-                m[i].l = 1 * new Date();
-                for (var j = 0; j < document.scripts.length; j++) {
-                    if (document.scripts[j].src === r) { return; }
-                }
-                k = e.createElement(t); a = e.getElementsByTagName(t)[0];
-                k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
-            })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+            (function(m,e,t,r,i,k,a){
+                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();
+                for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+            })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112815441', 'ym');
 
-            // ⚠️ ЗАМЕНИТЕ XXXXXXXXX НА ВАШ НОМЕР СЧЁТЧИКА
-            ym(XXXXXXXXX, 'init', {
+            ym(112815441, 'init', {
+                ssr: true,
+                webvisor: true,
                 clickmap: true,
-                trackLinks: true,
+                ecommerce: "dataLayer",
+                referrer: document.referrer,
+                url: location.href,
                 accurateTrackBounce: true,
-                webvisor: true
+                trackLinks: true
             });
         };
     </script>
     <noscript>
-        <div><img src="https://mc.yandex.ru/watch/XXXXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div>
+        <div><img src="https://mc.yandex.ru/watch/112815441" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <!-- Фоновое свечение -->
@@ -219,7 +219,6 @@
         <div class="contact-grid">
             <a href="https://t.me/zeroday0" class="contact-card" target="_blank" rel="noopener noreferrer">
                 <span class="contact-icon" aria-hidden="true">
-                    <!-- Иконка Telegram -->
                     <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
                         <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
                     </svg>
@@ -230,12 +229,6 @@
                 </div>
                 <span class="contact-arrow" aria-hidden="true">→</span>
             </a>
-
-            <!-- При желании можно раскомментировать и добавить email/GitHub
-            <a href="mailto:hello@zero.id" class="contact-card">
-                ...
-            </a>
-            -->
         </div>
     </section>
 </main>
@@ -296,7 +289,6 @@
 
         function showBanner() {
             banner.hidden = false;
-            // небольшая задержка для плавной анимации
             requestAnimationFrame(function () {
                 banner.classList.add('is-visible');
             });
@@ -311,7 +303,6 @@
         var consent = getConsent();
 
         if (!consent) {
-            // показываем баннер через секунду после загрузки
             window.addEventListener('load', function () {
                 setTimeout(showBanner, 800);
             });
